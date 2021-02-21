@@ -1,0 +1,14 @@
+session_name: Kafka
+windows:
+  - window_name: Vim
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/forkon/kafka/
+    panes:
+      - git status
+      - clear
+  - window_name: Docker
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/forkon/kafka/
+      - docker-compose up

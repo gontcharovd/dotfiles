@@ -1,0 +1,29 @@
+session_name: Airflow
+windows:
+  - window_name: Vim
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/forkon/airflow-engine/
+      - source env/bin/activate
+    panes:
+      - git status
+      - clear
+  - window_name: Airflow
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/forkon/airflow-engine/
+      - source env/bin/activate
+      - docker-compose up
+  - window_name: Cassandra
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/forkon/cassandra/
+      - git pull --rebase
+      - docker-compose up
+  - window_name: Backend
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/forkon/forkx-backend/
+      - git checkout develop
+      - git pull --rebase
+      - docker-compose up

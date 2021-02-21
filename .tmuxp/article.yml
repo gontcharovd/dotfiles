@@ -1,0 +1,19 @@
+session_name: Article
+windows:
+  - window_name: Vim
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/zabbix_article/
+    panes:
+      - git status
+      - clear
+  - window_name: Kafka Docker
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/zabbix_article/kafka/
+      - docker-compose up
+  - window_name: Zabbix Docker
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/zabbix_article/zabbix/
+      - docker-compose up

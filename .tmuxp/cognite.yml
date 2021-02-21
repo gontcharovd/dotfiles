@@ -1,0 +1,15 @@
+session_name: Cognite
+windows:
+  - window_name: Pipeline
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/cognite/pipeline/
+      - source env/bin/activate
+    panes:
+      - git status
+      - clear
+  - window_name: Airflow
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/cognite/
+      - docker-compose up
