@@ -1,0 +1,7 @@
+[user]
+	email = denis@gontcharov.dev
+	name = Denis Gontcharov
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
