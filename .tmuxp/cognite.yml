@@ -1,5 +1,12 @@
 session_name: Cognite
 windows:
+  - window_name: Dashboard
+    layout: main-horizontal
+    shell_command_before:
+      - cd ~/code/cognite/dashboard/
+    panes:
+      - git status
+      - clear
   - window_name: Pipeline
     layout: main-horizontal
     shell_command_before:

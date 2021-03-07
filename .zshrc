@@ -3,6 +3,9 @@ export LC_MESSAGES="C"
 
 export TERM=xterm-kitty
 
+# editor used by cron
+export VISUAL=vim
+
 # tmuxp
 export DISABLE_AUTO_TITLE='true'
 
