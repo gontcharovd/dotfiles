@@ -56,5 +56,4 @@ autoload -Uz compinit
 compinit
 kitty + complete setup zsh | source /dev/stdin
 
-cd $HOME
 clear
