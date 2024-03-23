@@ -8,11 +8,6 @@ if status is-interactive
     set -g -x DOCKER_HOST unix://$XDG_RUNTIME_DIR/docker.sock
     set -g -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 
-    # Source secret environment variables
-    source $HOME/.config/fish/secrets.fish
-
-    rbenv init - fish | source
-
     abbr --add cat bat
     abbr --add cdw 'cd $HOME/code/website/_posts'
     abbr --add dcb 'docker-compose build'

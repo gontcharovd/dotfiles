@@ -52,6 +52,6 @@ dunst &
 pipewire &
 greenclip daemon &
 setxkbmap -model -hhk -layout eu &
-xrandr --output HDMI-A-0 --mode 3840x2160 --pos 0x0 --output HDMI-A-1 --mode 2560x1440 --pos 3840x0 --rotate right &
+xrandr --output HDMI-1 --mode 3840x2160 --pos 0x0 --output HDMI-2 --mode 2560x1440 --pos 3840x0 --rotate right &
 nitrogen --set-scaled Pictures/wallpaper.jpg &
-dbus-run-session qtile start
+qtile start
