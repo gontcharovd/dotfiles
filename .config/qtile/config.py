@@ -21,6 +21,7 @@ keys = [
     Key([mod], "s", lazy.spawn("flameshot gui")),
     Key([mod], "e", lazy.spawn("thunar")),
     Key([mod], "r", lazy.spawn("kitty -e ranger")),
+    Key([mod], "c", lazy.spawn("galculator")),
     Key([mod], "Escape", lazy.spawn("slock")),
     Key([mod, "shift"], "Escape", lazy.spawn("systemctl poweroff")),
     # volume control
@@ -70,7 +71,7 @@ keys = [
     Key(
         [mod],
         "v",
-        lazy.spawn("rofi -modi 'clipboard:/home/denis/.local/bin/greenclip print' -show"),
+        lazy.spawn("rofi -modi 'clipboard:greenclip print' -show"),
         desc="Launch terminal",
     ),
     Key([mod], "b", lazy.spawn("blueman-manager"), desc="Launch terminal"),
@@ -214,6 +215,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(title="galculator"),  # GPG key password entry
         Match(title="Bluetooth Devices"),
         Match(title="Volume Control"),
         Match(title="Screen Layout Editor"),
