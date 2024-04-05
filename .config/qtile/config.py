@@ -216,7 +216,7 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(title="galculator"),  # GPG key password entry
-        Match(title="Bluetooth Devices"),
+        Match(title="blueman-manager"),
         Match(title="Volume Control"),
         Match(title="Screen Layout Editor"),
     ],
