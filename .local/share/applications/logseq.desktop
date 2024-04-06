@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Logseq
+Comment=Logseq
+Icon=/home/denis/Pictures/Logseq.png
+Exec= /home/denis/code/logseq-0.10.8/static/out/Logseq-linux-x64/Logseq
+Terminal=false
+Catagories=Work
