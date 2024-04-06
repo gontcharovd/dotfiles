@@ -71,7 +71,7 @@ keys = [
     Key(
         [mod],
         "v",
-        lazy.spawn("rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'"),
+        lazy.spawn("rofi -modi \"clipboard:/home/denis/.local/bin/greenclip print\" -show clipboard -run-command '{cmd}'"),
         desc="Launch terminal",
     ),
     Key([mod], "b", lazy.spawn("blueman-manager"), desc="Launch terminal"),

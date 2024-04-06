@@ -2,8 +2,9 @@ if status is-interactive
     fish_add_path /home/denis/.local/bin
     
     # Commands to run in interactive sessions can go here
-    set -U fish_user_paths $fish_user_paths ~/.local/bin
+    set -U fish_user_paths $fish_user_paths ~/.local/bin ~/code/espanso/target/release/
     set -U IP_QUADERNO 192.168.178.69
+    set -U XDG_CONFIG_HOME $HOME/.config
 
     abbr --add cat bat
     abbr --add cdw 'cd $HOME/code/website/_posts'

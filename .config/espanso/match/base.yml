@@ -1,0 +1,57 @@
+matches:
+  # Print the current date
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d/%m/%Y"
+
+  - trigger: ":mfg"
+    replace: "Mit freundlichen Grüßen"
+
+  - trigger: ":mvg"
+    replace: "Met vriendelijke groeten"
+
+  - trigger: ":vg"
+    replace: "Viele Grüße"
+
+  - trigger: ":kr"
+    replace: "Kind regards"
+
+  - trigger: ":eu"
+    replace: "denis@gontcharov.eu"
+
+  - trigger: ":gm"
+    replace: "gontcharovd@gmail.com"
+
+  - trigger: ":str"
+    replace: "Lehmbruckstraße 13"
+
+  - trigger: ":linkedin"
+    replace: "www.linkedin.com/in/gontcharovd"
+
+  - trigger: ":website"
+    replace: "https://gontcharov.eu"
+
+  - trigger: ":name"
+    replace: "Denis Gontcharov"
+
+  - trigger: ":uns"
+    replace: "unified namespace"
+
+  - trigger: ":di"
+    replace: "digital infrastructure"
+
+  - trigger: ":ds"
+    replace: "digital strategy"
+
+  - trigger: ":dt"
+    replace: "digital transformation"
+
+  - trigger: ":al"
+    replace: "aluminium"
+
+  - trigger: ":cal"
+    replace: "https://calendly.com/gontcharovd/introductory-call"
