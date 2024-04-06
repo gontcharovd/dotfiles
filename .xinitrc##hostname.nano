@@ -8,15 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +16,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -52,9 +36,9 @@ fi
 
 dunst &
 pipewire &
-greenclip daemon &
-espanso start &
+#greenclip daemon &
+#espanso start &
 setxkbmap -model -hhk -layout eu &
 xrandr --output HDMI-A-0 --mode 3840x2160 --pos 0x0 --output HDMI-A-1 --mode 2560x1440 --pos 3840x0 --rotate right &
-nitrogen --set-scaled Pictures/wallpaper.jpg &
-qtile start
+#nitrogen --set-scaled Pictures/wallpaper.jpg &
+dbus-run-session qtile start
