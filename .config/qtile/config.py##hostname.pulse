@@ -166,22 +166,8 @@ bar_monitor_1 = bar.Bar(
     background="#2E3440",
 )
 
-bar_monitor_2 = bar.Bar(
-    [
-        widget.GroupBox(
-            active="#A3BE8C",
-            this_current_screen_border="#81A1C1",
-            disable_drag=True,
-        ),
-        widget.WindowName(),
-    ],
-    36,
-    background="#2E3440",
-)
-
 screens = [
     Screen(bottom=bar_monitor_1),
-    Screen(bottom=bar_monitor_2),
 ]
 
 # Drag floating layouts.
