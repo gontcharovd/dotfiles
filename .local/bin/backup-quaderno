@@ -1,0 +1,42 @@
+#!/usr/bin/env fish
+set target $HOME/drive/Quaderno
+cd $HOME/code/quaderno
+source venv/bin/activate.fish
+
+function rename_latest_directory
+    set -l latest_directory "latest"
+    set -l bak_directory "previous"
+
+    # Check if 'latest' directory exists
+    if test -d "$latest_directory"
+        # Generate a unique UID using `date` and `uuidgen`
+        set -l unique_uid $(uuidgen)
+
+        # Rename 'latest' to 'latest.bak' with the unique UID
+        mv "$latest_directory" "$bak_directory-$unique_uid"
+
+        echo "Directory 'latest' renamed to '$bak_directory-$unique_uid'"
+    else
+        echo "Directory 'latest' does not exist"
+    end
+end
+
+function create_folders
+    set folders (dptrp1 --addr $IP_QUADERNO list-folders)
+    for folder in $folders
+        set folder (string replace -ra -- " " "\\ " $folder)
+        mkdir -p $target/latest/$folder
+    end 
+end
+
+function download_documents
+    echo "Backup in progress..."
+    set documents (dptrp1 --addr $IP_QUADERNO list-documents)
+    for document in $documents
+        echo "Downloading $document"
+        set document (string replace -ra -- " " "\\ " $document)
+        dptrp1 --addr $IP_QUADERNO download $document $target/latest/$document
+    end
+end
+
+rename_latest_directory; create_folders; and download_documents; and echo "Backup complete!"
