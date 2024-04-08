@@ -23,8 +23,6 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# start some nice programs
-
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
@@ -36,10 +34,10 @@ fi
 
 dunst &
 pipewire &
-greenclip daemon &
-espanso service start --unmanaged &
+insync start &
+$HOME/.local/bin/greenclip daemon &> /home/denis/greenclip.log &
+$HOME/code/espanso/target/release/espanso service start --unmanaged &
 setxkbmap -model -hhk -layout eu &
 xrandr --output HDMI-A-0 --mode 3840x2160 --pos 0x0 --output HDMI-A-1 --mode 2560x1440 --pos 3840x0 --rotate right &
-#nitrogen --set-scaled Pictures/wallpaper.jpg &
-dbus-run-session qtile start
-
+nitrogen --set-scaled $HOME/Pictures/river.jpg &
+exec dbus-run-session qtile start

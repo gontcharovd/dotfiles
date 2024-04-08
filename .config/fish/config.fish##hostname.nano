@@ -37,7 +37,8 @@ if status is-interactive
     abbr --add yd 'yadm diff'
     abbr --add yl "yadm log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
     abbr --add quaderno '$HOME/.local/bin/dptrp1 --addr 192.168.178.56'
-
+    abbr --add reboot 'loginctl reboot'
+    abbr --add poweroff 'loginctl poweroff'
 end
 
 fish_vi_key_bindings

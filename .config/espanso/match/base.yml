@@ -55,3 +55,12 @@ matches:
 
   - trigger: ":cal"
     replace: "https://calendly.com/gontcharovd/introductory-call"
+
+  - trigger: ":ttg"
+    replace: "Translate to German: "
+
+  - trigger: ":ftg"
+    replace: "Fix this German if necessary: "
+
+  - trigger: ":tel"
+    replace: "+491708892703"
