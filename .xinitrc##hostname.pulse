@@ -35,7 +35,7 @@ fi
 dunst &
 pipewire &
 insync start &
-$HOME/.local/bin/greenclip daemon &> /home/denis/greenclip.log &
+$HOME/.local/bin/greenclip daemon &
 $HOME/code/espanso/target/release/espanso service start --unmanaged &
 nitrogen --set-scaled $HOME/Pictures/city.jpg &
 exec dbus-run-session qtile start
