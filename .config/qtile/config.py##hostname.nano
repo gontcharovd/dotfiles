@@ -23,6 +23,7 @@ keys = [
     Key([mod], "r", lazy.spawn("kitty -e ranger")),
     Key([mod], "c", lazy.spawn("galculator")),
     Key([mod], "m", lazy.spawn("magnus")),
+    Key([mod], "a", lazy.spawn("pavucontrol")),
     Key([mod], "Escape", lazy.spawn("slock")),
     Key([mod, "shift"], "Escape", lazy.spawn("systemctl poweroff")),
     # volume control
@@ -68,8 +69,7 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "t", lazy.spawn("kitty"), desc="Launch terminal"),
-    Key([mod, "shift"], "t", lazy.spawn("kitty -e tmux"), desc="Launch Tmux"),
+    Key([mod], "t", lazy.spawn("kitty -e tmux"), desc="Launch terminal"),
     Key(
         [mod],
         "v",
