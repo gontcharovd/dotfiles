@@ -64,3 +64,6 @@ matches:
 
   - trigger: ":tel"
     replace: "+491708892703"
+
+  - trigger: ":umh"
+    replace: "United Manufacturing Hub"

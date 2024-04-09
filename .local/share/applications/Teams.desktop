@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Teams
+Comment=Microsoft Teams
+Icon=/home/denis/Pictures/teams.jpg
+Exec=yarn start
+Path=/home/denis/code/teams-for-linux-1.4.21/
+Terminal=false
+Catagories=Work
