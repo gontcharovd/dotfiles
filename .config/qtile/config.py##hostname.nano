@@ -68,7 +68,8 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "t", lazy.spawn("kitty -e tmux"), desc="Launch terminal"),
+    Key([mod], "t", lazy.spawn("kitty"), desc="Launch terminal"),
+    Key([mod, "shift"], "t", lazy.spawn("kitty -e tmux"), desc="Launch Tmux"),
     Key(
         [mod],
         "v",
@@ -232,6 +233,7 @@ reconfigure_screens = True
 # focus, should we respect this or not?
 auto_minimize = True
 
+# enforce cursor theme when targetting desktop with no window
 @hook.subscribe.startup
 def runner():
     import subprocess
