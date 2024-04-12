@@ -73,7 +73,9 @@ keys = [
     Key(
         [mod],
         "v",
-        lazy.spawn("rofi -modi \"clipboard:/home/denis/.local/bin/greenclip print\" -show clipboard -run-command '{cmd}'"),
+        lazy.spawn(
+            "rofi -modi \"clipboard:/home/denis/.local/bin/greenclip print\" -show clipboard -run-command '{cmd}'"
+        ),
         desc="Launch terminal",
     ),
     Key([mod], "b", lazy.spawn("blueman-manager"), desc="Launch terminal"),
@@ -130,12 +132,12 @@ for i in groups:
     )
 
 layouts = [
-    layout.Max(),
+    layout.Max(margin=15),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    layout.MonadTall(margin=10, border_focus="#78cff2"),
+    layout.MonadTall(margin=15, border_focus="#78cff2"),
     # layout.MonadWide(margin=10, border_focus="#78cff2"),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -153,7 +155,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 
-bar_monitor_1 = bar.Bar(
+bar = bar.Bar(
     [
         widget.GroupBox(
             active="#A3BE8C",
@@ -161,14 +163,27 @@ bar_monitor_1 = bar.Bar(
             disable_drag=True,
         ),
         widget.WindowName(),
+        widget.Volume(
+            # font="JetBrainsMono Nerd Font",
+            # theme_path="~/.config/qtile/Assets/Volume/",
+            emoji=True,
+            # fontsize=13,
+            # background="#353446",
+        ),
+        widget.Battery(
+            format="{percent:2.0%}",
+        ),
         widget.Clock(format="%Y-%m-%d %A %H:%M:%S"),
     ],
     36,
+    border_color="#282738",
+    border_width=[0, 0, 0, 0],
+    margin=[0, 60, 6, 60],
     background="#2E3440",
 )
 
 screens = [
-    Screen(bottom=bar_monitor_1),
+    Screen(bottom=bar),
 ]
 
 # Drag floating layouts.
@@ -219,7 +234,9 @@ reconfigure_screens = True
 # focus, should we respect this or not?
 auto_minimize = True
 
+
 @hook.subscribe.startup
 def runner():
     import subprocess
-    subprocess.Popen(['xsetroot', '-cursor_name', 'left_ptr'])
+
+    subprocess.Popen(["xsetroot", "-cursor_name", "left_ptr"])
