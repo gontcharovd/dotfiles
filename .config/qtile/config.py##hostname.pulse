@@ -151,6 +151,7 @@ bar = bar.Bar(
             colour_no_updates="#88C0D0",
             display_format="Updates {updates}",
             no_update_string="No updates",
+            update_interval=600,
         ),
         widget.Sep(),
         widget.Clock(format="%Y-%m-%d %A %H:%M:%S"),
@@ -158,12 +159,12 @@ bar = bar.Bar(
     36,
     border_color="#282738",
     border_width=[0, 0, 0, 0],
-    margin=[0, 60, 6, 60],
+    margin=[6, 60, 0, 60],
     background="#2E3440",
 )
 
 screens = [
-    Screen(bottom=bar),
+    Screen(top=bar),
 ]
 
 # Drag floating layouts.
