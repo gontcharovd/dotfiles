@@ -18,7 +18,10 @@ matches:
     replace: "Viele Grüße"
 
   - trigger: ":kr"
-    replace: "Kind regards"
+    replace: "Kind regards,"
+
+  - trigger: ":br"
+    replace: "Best regards,"
 
   - trigger: ":eu"
     replace: "denis@gontcharov.eu"
