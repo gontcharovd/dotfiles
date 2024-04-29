@@ -35,6 +35,7 @@ fi
 dunst &
 pipewire &
 insync start &
+setxkbmap -layout eu &
 $HOME/.local/bin/greenclip daemon &
 $HOME/code/espanso/target/release/espanso service start --unmanaged &
 nitrogen --set-scaled /home/denis/Pictures/forest.jpg &

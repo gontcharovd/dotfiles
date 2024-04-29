@@ -67,3 +67,12 @@ matches:
 
   - trigger: ":umh"
     replace: "United Manufacturing Hub"
+
+  - trigger: ":h"
+    replace: "--help"
+
+  - trigger: ":azl"
+    replace: "https://microsoft.com/devicelogin"
+
+  - trigger: ":os"
+    replace: "open-source"
