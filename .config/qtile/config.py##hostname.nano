@@ -133,15 +133,6 @@ bar_main = bar.Bar(
             get_volume_command="pamixer --get-volume-human",
             emoji=False,
         ),
-        widget.Battery(
-            format="Battery {percent:2.0%}",
-        ),
-        widget.Wlan(
-            format="WLAN {percent:2.0%}",
-            interface="wlp2s0",
-            use_ethernet=True,
-            update_interval=10,
-        ),
         widget.Sep(),
         widget.CheckUpdates(
             distro="Void",
