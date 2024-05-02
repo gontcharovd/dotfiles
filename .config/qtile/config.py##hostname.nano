@@ -1,3 +1,4 @@
+
 from libqtile import bar, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -5,10 +6,7 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 
-
 keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -18,36 +16,19 @@ keys = [
     # Switch focus to monitor
     Key([mod], "i", lazy.to_screen(0)),
     Key([mod], "o", lazy.to_screen(1)),
-    Key([mod], "s", lazy.spawn("flameshot gui")),
     Key([mod], "e", lazy.spawn("thunar")),
     Key([mod], "r", lazy.spawn("kitty -e ranger")),
+    Key([mod], "s", lazy.spawn("ksnip -r")),
     Key([mod], "c", lazy.spawn("galculator")),
     Key([mod], "m", lazy.spawn("magnus")),
     Key([mod], "a", lazy.spawn("pavucontrol")),
     Key([mod], "Escape", lazy.spawn("slock")),
     Key([mod, "shift"], "Escape", lazy.spawn("systemctl poweroff")),
-    # volume control
-    Key([], "F1", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
-    Key([], "F2", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
-    Key([], "F3", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
-    Key([], "F6", lazy.spawn("kitty -e htop")),
-    # brightness
-    Key([], "F7", lazy.spawn("brightnessctl set 5%-")),
-    Key([], "F8", lazy.spawn("brightnessctl set 5%+")),
-    Key([], "F9", lazy.spawn("toggle-mousepad.fish")),
-    Key([], "F10", lazy.spawn("toggle-nm.fish")),
-    Key([], "F11", lazy.spawn("arandr")),
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-    Key(
-        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
-    ),
-    Key(
-        [mod, "shift"],
-        "l",
-        lazy.layout.shuffle_right(),
-        desc="Move window to the right",
-    ),
+    Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 5")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 5")),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
@@ -73,7 +54,9 @@ keys = [
     Key(
         [mod],
         "v",
-        lazy.spawn("rofi -modi \"clipboard:/home/denis/.local/bin/greenclip print\" -show clipboard -run-command '{cmd}'"),
+        lazy.spawn(
+            "rofi -modi \"clipboard:/home/denis/.local/bin/greenclip print\" -show clipboard -run-command '{cmd}'"
+        ),
         desc="Launch terminal",
     ),
     Key([mod], "b", lazy.spawn("blueman-manager"), desc="Launch terminal"),
@@ -85,13 +68,11 @@ keys = [
         [mod],
         "f",
         lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
     ),
     Key(
         [mod],
         "Return",
         lazy.window.toggle_floating(),
-        desc="Toggle floating on the focused window",
     ),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -119,29 +100,14 @@ for i in groups:
             Key(
                 [mod, "shift"],
                 i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                lazy.window.togroup(i.name),
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )
 
 layouts = [
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(margin=10, border_focus="#78cff2"),
-    # layout.MonadWide(margin=10, border_focus="#78cff2"),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.Max(margin=15),
+    layout.MonadTall(margin=15, border_focus="#78cff2"),
 ]
 
 widget_defaults = dict(
@@ -153,7 +119,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 
-bar_monitor_1 = bar.Bar(
+bar_main = bar.Bar(
     [
         widget.GroupBox(
             active="#A3BE8C",
@@ -161,13 +127,44 @@ bar_monitor_1 = bar.Bar(
             disable_drag=True,
         ),
         widget.WindowName(),
+        widget.Volume(
+            fmt="Volume {}",
+            volume_app="pamixer",
+            get_volume_command="pamixer --get-volume-human",
+            emoji=False,
+        ),
+        widget.Battery(
+            format="Battery {percent:2.0%}",
+        ),
+        widget.Wlan(
+            format="WLAN {percent:2.0%}",
+            interface="wlp2s0",
+            use_ethernet=True,
+            update_interval=10,
+        ),
+        widget.Sep(),
+        widget.CheckUpdates(
+            distro="Void",
+            initial_text="Checking updates...",
+            colour_have_updates="#88C0D0",
+            colour_no_updates="#88C0D0",
+            display_format="Updates {updates}",
+            no_update_string="No updates",
+            update_interval=600,
+        ),
+        widget.Sep(),
+        widget.Bluetooth(),
+        widget.Sep(),
         widget.Clock(format="%Y-%m-%d %A %H:%M:%S"),
     ],
     36,
+    border_color="#282738",
+    border_width=[0, 0, 0, 0],
+    margin=[6, 60, 0, 60],
     background="#2E3440",
 )
 
-bar_monitor_2 = bar.Bar(
+bar_side = bar.Bar(
     [
         widget.GroupBox(
             active="#A3BE8C",
@@ -177,12 +174,16 @@ bar_monitor_2 = bar.Bar(
         widget.WindowName(),
     ],
     36,
+    border_color="#282738",
+    border_width=[0, 0, 0, 0],
+    margin=[6, 60, 0, 60],
     background="#2E3440",
 )
 
+
 screens = [
-    Screen(bottom=bar_monitor_1),
-    Screen(bottom=bar_monitor_2),
+    Screen(top=bar_main),
+    Screen(top=bar_side),
 ]
 
 # Drag floating layouts.
@@ -222,19 +223,19 @@ floating_layout = layout.Floating(
         Match(title="Volume Control"),
         Match(title="Screen Layout Editor"),
         Match(title="Magnus"),
+        Match(title="kitty"),
     ],
 )
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
+auto_minimize = False
 
 
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
-auto_minimize = True
-
-# enforce cursor theme when targetting desktop with no window
+# enforce cursor theme on empty desktop
 @hook.subscribe.startup
 def runner():
     import subprocess
-    subprocess.Popen(['xsetroot', '-cursor_name', 'left_ptr'])
+
+    subprocess.Popen(["xsetroot", "-cursor_name", "left_ptr"])

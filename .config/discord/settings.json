@@ -2,10 +2,10 @@
   "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 11,
-    "y": 43,
-    "width": 2172,
-    "height": 1317
+    "x": 0,
+    "y": 0,
+    "width": 2926,
+    "height": 1619
   },
   "chromiumSwitches": {},
   "SKIP_HOST_UPDATE": true
