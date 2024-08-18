@@ -108,6 +108,7 @@ for i in groups:
 layouts = [
     layout.Max(margin=15),
     layout.MonadTall(margin=15, border_focus="#78cff2"),
+    layout.MonadWide(margin=15, border_focus="#78cff2"),
 ]
 
 widget_defaults = dict(

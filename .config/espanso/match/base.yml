@@ -79,3 +79,19 @@ matches:
 
   - trigger: ":os"
     replace: "open-source"
+
+  - trigger: ":rec"
+    replace: "![](/home/denis/drive/Daygame/Recordings/{{today}}/girl1.mp3)"
+    vars:
+      - name: today
+        type: date
+        params:
+          format: "%Y%m%d"
+
+  - trigger: ":deb"
+    replace: "![](/home/denis/drive/Daygame/Recordings/{{today}}/debrief1.mp3)"
+    vars:
+      - name: today
+        type: date
+        params:
+          format: "%Y%m%d"

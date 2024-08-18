@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Postman
+Comment=Postman
+Icon=/home/denis/Pictures/postman-icon.svg
+Exec=/home/denis/code/postman/Postman
+Terminal=false
+Categories=Work

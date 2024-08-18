@@ -2,11 +2,13 @@
   "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 0,
-    "y": 0,
-    "width": 2926,
-    "height": 1619
+    "x": 1475,
+    "y": 840,
+    "width": 1438,
+    "height": 793
   },
   "chromiumSwitches": {},
-  "SKIP_HOST_UPDATE": true
+  "SKIP_HOST_UPDATE": true,
+  "MINIMIZE_TO_TRAY": false,
+  "OPEN_ON_STARTUP": false
 }
