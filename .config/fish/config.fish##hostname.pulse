@@ -3,8 +3,7 @@ if status is-interactive
     
     # Commands to run in interactive sessions can go here
     set -U fish_user_paths $fish_user_paths ~/.local/bin ~/code/espanso/target/release/
-    # set -U IP_QUADERNO 192.168.178.158
-    set -U IP_QUADERNO 10.0.0.20
+    set -U IP_QUADERNO 192.168.178.158
     set -U XDG_CONFIG_HOME $HOME/.config
 
     abbr --add cat bat
