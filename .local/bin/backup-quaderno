@@ -2,15 +2,16 @@
 set target $HOME/drive/Quaderno
 cd $HOME/code/quaderno
 source venv/bin/activate.fish
+cd $HOME/drive/Quaderno
 
 function rename_latest_directory
     set -l latest_directory "latest"
-    set -l bak_directory "previous"
+    set -l bak_directory "backup"
 
     # Check if 'latest' directory exists
     if test -d "$latest_directory"
         # Generate a unique UID using `date` and `uuidgen`
-        set -l unique_uid $(uuidgen)
+        set -l unique_uid (date +"%Y%m%d-%H%M%S")
 
         # Rename 'latest' to 'latest.bak' with the unique UID
         mv "$latest_directory" "$bak_directory-$unique_uid"
@@ -39,4 +40,4 @@ function download_documents
     end
 end
 
-rename_latest_directory; create_folders; and download_documents; and echo "Backup complete!"
+rename_latest_directory; create_folders; download_documents; and echo "Backup complete!"
