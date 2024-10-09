@@ -2,7 +2,7 @@
 Type=Application
 Name=Logseq
 Comment=Logseq
-Icon=/home/denis/Pictures/Logseq.png
+Icon=/home/denis/drive/Icons/Logseq.png
 Exec= /home/denis/code/logseq/static/out/Logseq-linux-x64/Logseq
 Terminal=false
 Catagories=Work

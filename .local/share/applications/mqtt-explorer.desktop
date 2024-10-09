@@ -3,6 +3,7 @@ Type=Application
 Name=MQTT Explorer
 Comment=MQTT Explorer
 Exec=yarn start
+Icon=/home/denis/drive/Icons/mqtt-explorer.png
 Path=/home/denis/code/MQTT-Explorer/
 Terminal=false
 Catagories=Work

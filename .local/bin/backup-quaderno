@@ -4,6 +4,8 @@ cd $HOME/code/quaderno
 source venv/bin/activate.fish
 cd $HOME/drive/Quaderno
 
+echo "IP_QUADERNO: $IP_QUADERNO"
+
 function rename_latest_directory
     set -l latest_directory "latest"
     set -l bak_directory "backup"

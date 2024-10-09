@@ -90,3 +90,6 @@ matches:
 
   - trigger: ":tw"
     replace: "technical writing"
+
+  - trigger: ":knit"
+    replace: "rmarkdown::render(input = \"daygame.Rmd\", output_format = \"html_document\", output_file = \"daygame.html\")"
