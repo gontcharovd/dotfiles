@@ -2,7 +2,7 @@
 Type=Application
 Name=Postman
 Comment=Postman
-Icon=/home/denis/Icons/postman-icon.svg
+Icon=/home/denis/drive/Icons/postman-icon.svg
 Exec=/home/denis/code/Postman/Postman
 Terminal=false
 Categories=Work
