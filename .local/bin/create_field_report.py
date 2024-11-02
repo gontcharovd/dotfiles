@@ -26,13 +26,14 @@ def create_logseq_entry(latest_dir):
     # Step 3: Write Logseq block for each audio file in the latest directory
     with open(journal_file_path, "a") as journal_file:
         journal_file.write("\n- [[field report]]\n")
+        journal_file.write("         - location:\n")
 
         # Loop through each audio file in the latest directory
         full_dir_path = os.path.join(recordings_dir, latest_dir)
         for audiofile in os.listdir(full_dir_path):
             if audiofile.endswith(".mp3"):
                 filename = os.path.splitext(audiofile)[0]  # Remove extension to get just the name
-                journal_file.write(f"    - [[{filename}]]\n")
+                journal_file.write(f"    - {filename}\n")
                 journal_file.write(f"         - ![]({os.path.join(full_dir_path, audiofile)})\n")
                 journal_file.write("         - notes\n")
 
