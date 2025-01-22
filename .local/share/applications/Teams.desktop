@@ -4,6 +4,6 @@ Name=Teams
 Comment=Microsoft Teams
 Icon=/home/denis/drive/Icons/teams.png
 Exec=yarn start
-Path=/home/denis/code/teams-for-linux-1.4.21/
+Path=/home/denis/code/teams-for-linux-1.12.6.AppImage
 Terminal=false
 Catagories=Work
