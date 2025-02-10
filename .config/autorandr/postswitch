@@ -1,1 +1,2 @@
-nitrogen --set-zoom-fill drive/Fotos/wallpaper/forest.jpg
+#!/bin/bash
+nitrogen --head 0 --set-zoom-fill drive/Fotos/wallpaper/forest.jpg
