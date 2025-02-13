@@ -3,6 +3,7 @@ import subprocess
 from libqtile import bar, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from vpn_widget import VPNWidget
 
 
 mod = "mod4"
@@ -143,6 +144,7 @@ bar = bar.Bar(
             use_ethernet=True,
             update_interval=10,
         ),
+        VPNWidget(),
         widget.Sep(),
         widget.CheckUpdates(
             distro="Void",
