@@ -8,14 +8,8 @@ matches:
         params:
           format: "%d/%m/%Y"
 
-  - trigger: ":mfg"
-    replace: "Mit freundlichen Grüßen"
-
-  - trigger: ":mvg"
-    replace: "Met vriendelijke groeten"
-
   - trigger: ":vg"
-    replace: "Viele Grüße"
+    replace: "Vriendelijke groeten,"
 
   - trigger: ":kr"
     replace: "Kind regards,"
@@ -30,7 +24,7 @@ matches:
     replace: "gontcharovd@gmail.com"
 
   - trigger: ":str"
-    replace: "Lehmbruckstraße 13"
+    replace: "Begonialaan 19"
 
   - trigger: ":linkedin"
     replace: "www.linkedin.com/in/gontcharovd"
@@ -53,9 +47,6 @@ matches:
   - trigger: ":dt"
     replace: "digital transformation"
 
-  - trigger: ":al"
-    replace: "aluminium"
-
   - trigger: ":cal"
     replace: "https://calendly.com/gontcharovd/introductory-call"
 
@@ -66,7 +57,7 @@ matches:
     replace: "Fix this German if necessary: "
 
   - trigger: ":tel"
-    replace: "+491708892703"
+    replace: "+49170996377"
 
   - trigger: ":umh"
     replace: "United Manufacturing Hub"
@@ -76,3 +67,6 @@ matches:
 
   - trigger: ":os"
     replace: "open-source"
+
+  - trigger: ":adb"
+    replace: "Azure Databricks"
