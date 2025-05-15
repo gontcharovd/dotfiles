@@ -17,15 +17,13 @@ keys = [
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Switch focus to monitor
     Key([mod], "i", lazy.to_screen(0)),
-    Key([mod], "o", lazy.to_screen(1)),
+    Key([mod], "u", lazy.to_screen(1)),
     Key([mod], "e", lazy.spawn("thunar")),
     Key([mod], "r", lazy.spawn("kitty -e ranger")),
     Key([mod], "s", lazy.spawn("ksnip -r")),
     Key([mod], "c", lazy.spawn("galculator")),
-    Key([mod], "m", lazy.spawn("magnus")),
     Key([mod], "a", lazy.spawn("pavucontrol")),
     Key([mod], "Escape", lazy.spawn("slock")),
-    Key([mod, "shift"], "Escape", lazy.spawn("systemctl poweroff")),
     Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 5")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 5")),
@@ -35,12 +33,10 @@ keys = [
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key(
-        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
-    ),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod, "control"], "j", lazy.layout.grow_down()),
+    Key([mod, "control"], "k", lazy.layout.grow_up()),
+    Key([mod, "control"], "h", lazy.layout.grow_left()),
+    Key([mod, "control"], "l", lazy.layout.grow_right()),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -216,6 +212,6 @@ focus_on_window_activation = "smart"
 reconfigure_screens = True
 auto_minimize = False
 
-@hook.subscribe.startup
-def set_keyboard_layout():
-    subprocess.run(["setxkbmap", "-option", "ctrl:swapcaps"])
+# @hook.subscribe.startup
+# def set_keyboard_layout():
+#     subprocess.run(["setxkbmap", "-option", "ctrl:swapcaps"])

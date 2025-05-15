@@ -32,12 +32,8 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
-dunst &
 pipewire &
 insync start &
 setxkbmap -layout eu &
-$HOME/.local/bin/greenclip daemon &
 $HOME/code/espanso/target/release/espanso service start --unmanaged &
-nitrogen --set-scaled /home/denis/drive/Fotos/wallpaper/forest.jpg &
-picom --config ~/.config/picom/picom.conf &
-exec dbus-run-session qtile start
+exec dbus-run-session startxfce4

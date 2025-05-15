@@ -70,3 +70,6 @@ matches:
 
   - trigger: ":adb"
     replace: "Azure Databricks"
+
+  - trigger: ":gx"
+    replace: "Great Expectations"
