@@ -24,7 +24,7 @@ matches:
     replace: "gontcharovd@gmail.com"
 
   - trigger: ":str"
-    replace: "Begonialaan 19"
+    replace: "Begonialaan 9"
 
   - trigger: ":linkedin"
     replace: "www.linkedin.com/in/gontcharovd"
@@ -71,5 +71,8 @@ matches:
   - trigger: ":adb"
     replace: "Azure Databricks"
 
-  - trigger: ":gx"
-    replace: "Great Expectations"
+  - trigger: ":db"
+    replace: "Databricks"
+
+  - trigger: ":yt"
+    replace: "YouTube"
