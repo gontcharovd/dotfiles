@@ -76,3 +76,9 @@ matches:
 
   - trigger: ":yt"
     replace: "YouTube"
+
+  - trigger: ":ms"
+    replace: "Microsoft"
+
+  - trigger: ":az"
+    replace: "Azure"

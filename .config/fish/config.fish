@@ -1,10 +1,12 @@
 if status is-interactive
     fish_add_path /home/denis/.local/bin
+    fish_add_path /home/denis/code/spark-3.5.6-bin-hadoop3/bin
     
     # Commands to run in interactive sessions can go here
     set -U fish_user_paths $fish_user_paths ~/.local/bin ~/code/espanso/target/release/
-    set -U IP_QUADERNO 192.168.178.158
     set -U XDG_CONFIG_HOME $HOME/.config
+    set -x SPARK_LOCAL_IP 127.0.0.1
+    set -x JAVA_HOME /usr/lib/jvm/openjdk17
 
     abbr --add cat bat
     abbr --add cdw 'cd $HOME/code/website/_posts'
@@ -27,8 +29,8 @@ if status is-interactive
     abbr --add gp 'git push'
     abbr --add gpr 'git pull --rebase'
     abbr --add gs 'git status'
-    abbr --add v 'vim .'
-    abbr --add w 'vim . -c "Goyo" -c "Limelight" -c "set wrap"'
+    abbr --add v 'nvim .'
+    abbr --add w 'nvim . -c "Goyo" -c "Limelight" -c "set wrap"'
     abbr --add ya 'yadm add'
     abbr --add yc 'yadm commit -m'
     abbr --add yp 'yadm push'
@@ -52,3 +54,7 @@ end
 
 # suppress greeting
 set fish_greeting
+
+# >>> coursier install directory >>>
+set -gx PATH "$PATH:/home/denis/.local/share/coursier/bin"
+# <<< coursier install directory <<<
